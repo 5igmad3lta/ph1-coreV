@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Sonsie+One&display=swap');
+
+html body {
+    background-color: rgb(106, 109, 116);
+    font-family: "Jost";
+    margin: 0;
+    /* overflow-x: auto; */
+    color: whitesmoke;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 10px;
+    height: auto;
+}
+
+.heading {
+    background-color: #2C2C2C;
+    padding: 5px 0px 5px 25px;
+    margin: 0;
+    border-bottom: double 4px rgb(194, 192, 192);
+}
+
+h1, h2 {
+    margin: 0;
+}
+h2 {
+    color: #FF7043;
+}
