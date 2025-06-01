@@ -29,3 +29,20 @@ h1, h2 {
 h2 {
     color: #FF7043;
 }
+.item {
+    display: block;
+    border-radius: 1em;
+    background-color: #ffc36f9f;
+    width: 94%;
+    margin: 15px 2.5px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: medium;
+    font-weight: 500;
+}
+
+.list-container {
+    border: 2px solid #e2e2e2;
+    padding: 0;
+    width: 100%;
+}
