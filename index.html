@@ -14,7 +14,7 @@
         <h2 class="sub-heading">Master the Big 5</h2>
     </div>
     <!-- container for main content-->
-     <div class="grid-container">
+    <div class="grid-container">
         <!--exercise selection -->
         <ul class="list-container" id="exercise-list">
             <li class="item">Exercise 1</li>
@@ -29,19 +29,24 @@
         </div>
         <div class="exercise-info">
             <h3 class="sub-heading">INSTRUCTIONS</h3>
-            <ol class="instructions">
+            <ol id="instructions">
                 SELECT AN EXERCISE FIRST
             </ol>
         </div>
         <!-- stat section  -->
          <div class="stat-container">
-            <h3 class="sub-heading">What will your record today?</h3>
+            <div class="title">What will your record today?</div>
+                <div class="stats" id="muscle-targets"><span>Primary and Secondary Muscles listed here</span></div>
+                <div class="stats"><span class="value" id="weight">WEIGHT</span><span id="currentMax"></span></div>
+                <div class="stats"><span class="value" id="sets"></span> SETS</div>
+                <div class="stats"><span class="value" id="reps"></span> REPS</div>
+                <div class="stats" id="totalVolume">VOLUME<span class="value" id="volume"></span><span id="difference"></span></div>
          </div>
          <!-- user input section -->
           <div class="log-container">
             <h3 class="sub-heading">QUICK LOG</h3>
             <button>Submit Entry</button>
           </div>
-     </div>
+    </div>
 </body>
 </html>
