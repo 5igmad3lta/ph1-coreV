@@ -100,11 +100,11 @@ function updateLog(data) {
         let difference = parseInt(((data.max * data.reps) * data.sets) - volume);
         console.log(difference)
         if(difference > 0) {
-            indicator.textContent = " ▲" 
+            indicator.textContent = " ▲" + difference + " " + " kg";
             indicator.className = "positive"
             console.log(indicator)
             } else if ( difference < 0) {
-            indicator.textContent = " ▼"
+            indicator.textContent = " ▼" + difference + " " + " kg"
             indicator.className = "negative"
             console.log(indicator)
             } else {
