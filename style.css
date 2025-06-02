@@ -154,3 +154,53 @@ button {
     top: -10px;
     color: greenyellow;
 }
+
+/* toggle switch */
+.radio-toggle {
+  position: relative;
+  display: flex;
+  width: 120px;
+  height: 40px;
+  background: #f0f0f0;
+  border-radius: 20px;
+  padding: 4px;
+}
+
+.radio-toggle input[type="radio"] {
+  display: none; /* Hide the radio buttons */
+}
+
+.radio-toggle label {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.radio-toggle .slider {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 56px;
+  height: 80%;
+  background: #FF7043;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+/* Slide to "Off" when the second radio is selected */
+#toggle-off:checked ~ .slider {
+  transform: translateX(60px);
+}
+
+/* Change label text color when selected */
+#toggle-on:checked ~ label[for="toggle-on"],
+#toggle-off:checked ~ label[for="toggle-off"] {
+  color: white;
+}
