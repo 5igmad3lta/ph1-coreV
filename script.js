@@ -60,3 +60,35 @@ function createTag(data, target) {
     document.getElementById('muscle-targets').appendChild(tag);
   })
 }
+
+// submit handler
+document.addEventListener('DOMContentLoaded', () => {
+  let form = document.querySelector('form.form-container')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let weight = parseInt(e.target[0].value);
+    let sets = parseInt(e.target[1].value);
+    let reps = parseInt(e.target[2].value);
+    console.log(weight)
+    handleSubmit(weight, sets, reps)
+    form.reset()
+  })
+})
+
+function handleSubmit(weight, sets, reps) {
+  let id = document.querySelector('div.title').id;
+  fetch(`http://localhost:3000/exercises/${id}`,{
+    method: "PATCH",
+    headers:{
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({
+      sets: sets,
+      reps: reps,
+      max: weight
+    })
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
