@@ -31,8 +31,8 @@ function retrieveExercise(e) {
   document.querySelector('span#reps').textContent = data.reps;
   let total = document.querySelector('span#volume')
   let max = document.getElementById('currentMax');
-  max.textContent = data.max;
-  total.textContent = (data.max * data.sets) * data.reps;
+  max.textContent = data.max + " kg";
+  total.textContent = (data.max * data.sets) * data.reps + " kg";
   const instructions = document.getElementById('instructions');
   instructions.innerHTML = "";
   data.instructions.forEach(line => {
@@ -104,7 +104,7 @@ function updateLog(data) {
             indicator.className = "positive"
             console.log(indicator)
             } else if ( difference < 0) {
-            indicator.textContent = " ▼" + difference + " " + " kg"
+            indicator.textContent = " ▼" + Math.abs(difference) + " " + " kg"
             indicator.className = "negative"
             console.log(indicator)
             } else {

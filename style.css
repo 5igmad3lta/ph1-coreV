@@ -141,3 +141,16 @@ button {
     margin-right: 50px;
     margin-bottom: 20px;
 }
+#difference {
+    font-size: small;
+}
+
+.negative {
+    color: red;
+}
+
+.positive {
+    position: relative;
+    top: -10px;
+    color: greenyellow;
+}
