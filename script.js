@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let weight = parseInt(e.target[0].value);
     let sets = parseInt(e.target[1].value);
     let reps = parseInt(e.target[2].value);
-    console.log(weight)
     handleSubmit(weight, sets, reps)
     form.reset()
   })
@@ -90,5 +89,9 @@ function handleSubmit(weight, sets, reps) {
     })
   })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => updateLog(data))
+}
+
+function updateLog(data) {
+  renderPage(data)
 }

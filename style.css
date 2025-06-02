@@ -120,7 +120,6 @@ div.title {
     height: auto;
     margin-right: 4px;
     width: 120px;
-    /* flex-shrink: 0; */
 }
 .form-group {
     display: flex;
