@@ -93,5 +93,23 @@ function handleSubmit(weight, sets, reps) {
 }
 
 function updateLog(data) {
-  renderPage(data)
+    let volume = parseInt(document.querySelector('span#volume').textContent);
+    let indicator = document.querySelector('span#difference');
+    if(data.max) {
+        renderPage(data)
+        let difference = parseInt(((data.max * data.reps) * data.sets) - volume);
+        console.log(difference)
+        if(difference > 0) {
+            indicator.textContent = " ▲" 
+            indicator.className = "positive"
+            console.log(indicator)
+            } else if ( difference < 0) {
+            indicator.textContent = " ▼"
+            indicator.className = "negative"
+            console.log(indicator)
+            } else {
+            indicator.className = "neutral"
+            console.log(indicator)
+            }
+    }
 }
