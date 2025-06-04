@@ -48,6 +48,7 @@ h2 {
 }
 
 ul li:hover {
+    color: #FF7043;
     box-shadow: 0px 5px 5px #FF7043
 }
 img {

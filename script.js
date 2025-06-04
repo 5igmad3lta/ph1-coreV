@@ -34,7 +34,11 @@ function toggleUnit(unitStatus) {
         unit = 'lb';
         isLbs = true;
     }
-    convertUnits(id);
+    let form = document.querySelector('input#weight');
+    form.placeholder = unit;
+    if (id !== '') {
+        convertUnits(id);
+    }
 };
 
 function convertUnits(id) {
@@ -56,7 +60,7 @@ function renderPage(data) {
   document.querySelector('div.title').id = data.id;
   document.querySelector('span#sets').textContent = data.sets;
   document.querySelector('span#reps').textContent = data.reps;
-  let total = document.querySelector('span#volume')
+  let total = document.querySelector('span#volume');
   let max = document.getElementById('currentMax');
   if (isLbs) {
     max.textContent = Math.round(data.max * 2.205) + " " + unit;
@@ -98,34 +102,45 @@ document.addEventListener('DOMContentLoaded', () => {
   let form = document.querySelector('form.form-container')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    let weight = parseInt(e.target[0].value);
-    let sets = parseInt(e.target[1].value);
-    let reps = parseInt(e.target[2].value);
-    handleSubmit(weight, sets, reps)
-    form.reset()
+    console.log(e.target)
+    if(document.querySelector('div.title').id === '') {
+        alert(`Choose an exercise first!`)
+        return;
+    } else {
+        let weight = parseInt(e.target[0].value);
+        let sets = parseInt(e.target[1].value);
+        let reps = parseInt(e.target[2].value);
+        handleSubmit(weight, sets, reps)
+        form.reset()
+    }
   })
 })
 
 function handleSubmit(weight, sets, reps) {
-  let id = document.querySelector('div.title').id;
-  fetch(`http://localhost:3000/exercises/${id}`,{
-    method: "PATCH",
-    headers:{
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-    },
-    body: JSON.stringify({
-      sets: sets,
-      reps: reps,
-      max: weight
+    if (isNaN(weight) || isNaN(sets)|| isNaN(reps)) {
+        alert(`Please enter valid numbers!`)
+        return;
+    }
+    let id = document.querySelector('div.title').id;
+    fetch(`http://localhost:3000/exercises/${id}`,{
+        method: "PATCH",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+        body: JSON.stringify({
+            sets: sets,
+            reps: reps,
+            max: weight
+        })
     })
-  })
     .then(res => res.json())
     .then(data => updateLog(data))
 }
 
 function updateLog(data) {
     let volume = parseInt(document.querySelector('span#volume').textContent);
+    volume = checkForConversion(volume);
     let indicator = document.querySelector('span#difference');
     if(data.max) {
         renderPage(data)
@@ -144,5 +159,13 @@ function updateLog(data) {
             console.log(indicator)
             }
     }
+}
+
+function checkForConversion(number) {
+  if (isLbs) {
+    return Math.round(number * 0.453);
+  } else {
+    return number;
+  }
 }
 
