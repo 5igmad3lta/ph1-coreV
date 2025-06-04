@@ -1,4 +1,5 @@
 let unit = 'kg';
+let isLbs = false;
 document.addEventListener('DOMContentLoaded', () => {
     fetch("http://localhost:3000/exercises")
     .then(response => response.json())
@@ -8,28 +9,39 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderDefault(data) {
     // Use this code to grab and change the unit of measurement 
     document.querySelectorAll('input[name="toggle"]').forEach(radio => {
-    radio.addEventListener('change', function(e) {
-        let isLbs = e.target.nextElementSibling.innerText
-        if(isLbs === 'kg') {
-            unit = 'kg';
-            console.log(unit)
-        } else {
-            unit = 'lb';
-            console.log(unit)
-        }
+        radio.addEventListener('change', function(e) {
+            let unitStatus  = e.target.nextElementSibling.innerText
+            toggleUnit(unitStatus)
+        })
     });
-})
-  const list = document.getElementById('exercise-list');
-  list.innerHTML = "";
-  data.forEach((exercise) => {
-    let item = document.createElement('li');
-    item.textContent = exercise.name.toUpperCase();
-    item.classList = "item";
-    item.id = exercise.id;
-    item.addEventListener('click', retrieveExercise)
-    list.appendChild(item);
-  })
+    const list = document.getElementById('exercise-list');
+    list.innerHTML = "";
+    data.forEach((exercise) => {
+        let item = document.createElement('li');
+        item.textContent = exercise.name.toUpperCase();
+        item.classList = "item";
+        item.id = exercise.id;
+        item.addEventListener('click', retrieveExercise)
+        list.appendChild(item);
+    })
 }
+function toggleUnit(unitStatus) {
+    let id = document.querySelector('div.title').id
+    if(unitStatus === 'kg') {
+        unit = 'kg';
+        isLbs = false;
+    } else {
+        unit = 'lb';
+        isLbs = true;
+    }
+    convertUnits(id);
+};
+
+function convertUnits(id) {
+  fetch(`http://localhost:3000/exercises/${id}`)
+  .then(res => res.json())
+  .then(data => renderPage(data))
+  }
 
 function retrieveExercise(e) {
   fetch(`http://localhost:3000/exercises/${e.target.id}`)
@@ -37,7 +49,8 @@ function retrieveExercise(e) {
   .then(data => renderPage(data))
   }
 
-  function renderPage(data) {
+function renderPage(data) {
+  document.getElementById('difference').textContent = "";
   document.getElementById('imgDefault').src = data.image;
   document.querySelector('div.title').textContent = data.name.toUpperCase();
   document.querySelector('div.title').id = data.id;
@@ -45,8 +58,13 @@ function retrieveExercise(e) {
   document.querySelector('span#reps').textContent = data.reps;
   let total = document.querySelector('span#volume')
   let max = document.getElementById('currentMax');
-  max.textContent = data.max + ' ' + unit;
-  total.textContent = (data.max * data.sets) * data.reps + ' ' + unit;
+  if (isLbs) {
+    max.textContent = Math.round(data.max * 2.205) + " " + unit;
+    total.textContent = Math.round((data.max * 2.205) * data.reps) * data.sets + " " + unit;
+  } else if (!isLbs) {
+    max.textContent = data.max + ' ' + unit;
+    total.textContent = (data.max * data.sets) * data.reps + ' ' + unit;
+  }
   const instructions = document.getElementById('instructions');
   instructions.innerHTML = "";
   data.instructions.forEach(line => {

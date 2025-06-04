@@ -104,9 +104,9 @@
       "secondary": [
         "Calves"
       ],
-      "max": 100,
-      "sets": 1,
-      "reps": 1,
+      "max": null,
+      "sets": null,
+      "reps": null,
       "image": "https://fitnessprogramer.com/wp-content/uploads/2021/02/BARBELL-SQUAT.gif"
     },
     {
