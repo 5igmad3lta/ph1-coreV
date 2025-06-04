@@ -195,12 +195,12 @@ button {
   z-index: 1;
 }
 /* Slide to "Off" when the second radio is selected */
-#toggle-off:checked ~ .slider {
+#toggle-lb:checked ~ .slider {
   transform: translateX(60px);
 }
 
 /* Change label text color when selected */
-#toggle-on:checked ~ label[for="toggle-on"],
-#toggle-off:checked ~ label[for="toggle-off"] {
+#toggle-kg:checked ~ label[for="toggle-kg"],
+#toggle-lb:checked ~ label[for="toggle-lb"] {
   color: white;
 }

@@ -1,3 +1,4 @@
+let unit = 'kg';
 document.addEventListener('DOMContentLoaded', () => {
     fetch("http://localhost:3000/exercises")
     .then(response => response.json())
@@ -5,6 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderDefault(data) {
+    // Use this code to grab and change the unit of measurement 
+    document.querySelectorAll('input[name="toggle"]').forEach(radio => {
+    radio.addEventListener('change', function(e) {
+        let isLbs = e.target.nextElementSibling.innerText
+        if(isLbs === 'kg') {
+            unit = 'kg';
+            console.log(unit)
+        } else {
+            unit = 'lb';
+            console.log(unit)
+        }
+    });
+})
   const list = document.getElementById('exercise-list');
   list.innerHTML = "";
   data.forEach((exercise) => {
@@ -31,8 +45,8 @@ function retrieveExercise(e) {
   document.querySelector('span#reps').textContent = data.reps;
   let total = document.querySelector('span#volume')
   let max = document.getElementById('currentMax');
-  max.textContent = data.max + " kg";
-  total.textContent = (data.max * data.sets) * data.reps + " kg";
+  max.textContent = data.max + ' ' + unit;
+  total.textContent = (data.max * data.sets) * data.reps + ' ' + unit;
   const instructions = document.getElementById('instructions');
   instructions.innerHTML = "";
   data.instructions.forEach(line => {
@@ -100,11 +114,11 @@ function updateLog(data) {
         let difference = parseInt(((data.max * data.reps) * data.sets) - volume);
         console.log(difference)
         if(difference > 0) {
-            indicator.textContent = " ▲" + difference + " " + " kg";
+            indicator.textContent = " ▲" + difference + unit;
             indicator.className = "positive"
             console.log(indicator)
             } else if ( difference < 0) {
-            indicator.textContent = " ▼" + Math.abs(difference) + " " + " kg"
+            indicator.textContent = " ▼" + Math.abs(difference) + unit
             indicator.className = "negative"
             console.log(indicator)
             } else {
@@ -113,3 +127,4 @@ function updateLog(data) {
             }
     }
 }
+
