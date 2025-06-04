@@ -120,22 +120,24 @@ function handleSubmit(weight, sets, reps) {
     if (isNaN(weight) || isNaN(sets)|| isNaN(reps)) {
         alert(`Please enter valid numbers!`)
         return;
-    }
-    let id = document.querySelector('div.title').id;
-    fetch(`http://localhost:3000/exercises/${id}`,{
+    } else {
+      weight = checkForConversion(weight);
+      let id = document.querySelector('div.title').id;
+      fetch(`http://localhost:3000/exercises/${id}`,{
         method: "PATCH",
         headers:{
             "Content-Type": "application/json",
             "Accept": "application/json",
         },
         body: JSON.stringify({
+            max: weight,
             sets: sets,
-            reps: reps,
-            max: weight
+            reps: reps
         })
     })
     .then(res => res.json())
     .then(data => updateLog(data))
+  }
 }
 
 function updateLog(data) {
