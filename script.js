@@ -147,7 +147,7 @@ function updateLog(data) {
     if(data.max) {
         renderPage(data)
         let difference = parseInt(((data.max * data.reps) * data.sets) - volume);
-        console.log(difference)
+        difference = kilogramsToPounds(difference);
         if(difference > 0) {
             indicator.textContent = " ▲" + difference + unit;
             indicator.className = "positive"
@@ -171,3 +171,10 @@ function checkForConversion(number) {
   }
 }
 
+function kilogramsToPounds(number) {
+  if (isLbs) {
+    return Math.round(number * 2.205)
+  } else {
+    return number
+  }
+}
