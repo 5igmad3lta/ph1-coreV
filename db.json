@@ -20,9 +20,9 @@
       "secondary": [
         "Triceps"
       ],
-      "max": 10,
+      "max": 50,
       "sets": 1,
-      "reps": 1,
+      "reps": 12,
       "image": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"
     },
     {
@@ -75,7 +75,7 @@
         "Trapezius",
         "Forearm Flexors"
       ],
-      "max": 10,
+      "max": 20,
       "sets": 1,
       "reps": 1,
       "image": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Deadlift.gif"
