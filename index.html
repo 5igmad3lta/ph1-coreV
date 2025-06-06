@@ -24,53 +24,56 @@
             <li class="item">Exercise 5</li>
         </ul>
         <!-- image and description section -->
-        <div class="image-container">
+        <div class="info-container">
             <img id="imgDefault" src="media/49ae7f18-5d22-4b68-b994-dae99cd0a566.jpg" alt="[LIFT NAME]">
-        </div>
-        <div class="exercise-info">
-            <h3 class="sub-heading">INSTRUCTIONS</h3>
-            <ol id="instructions">
-                SELECT AN EXERCISE FIRST
-            </ol>
+            <div class="exercise-info">
+                <h3 class="sub-heading">INSTRUCTIONS</h3>
+                <ol id="instructions">
+                    SELECT AN EXERCISE FIRST
+                </ol>
+            </div>
         </div>
         <!-- stat section  -->
-         <div class="stat-container">
-            <div class="title">What will your record today?</div>
+        <div class="stat-log-parent-container">
+            <div class="stat-container">
+                <div class="title">What will your record today?</div>
                 <div class="stats" id="muscle-targets"><span>Primary and Secondary Muscles listed here</span></div>
                 <div class="stats"><span class="value" id="weight">WEIGHT</span><span id="currentMax"></span></div>
                 <div class="stats"><span class="value" id="sets"></span> SETS</div>
                 <div class="stats"><span class="value" id="reps"></span> REPS</div>
                 <div class="stats" id="totalVolume">VOLUME<span class="value" id="volume"></span><span id="difference"></span></div>
-         </div>
-         <!-- user input section -->
-          <div class="log-container">
-            <div class="title">QUICK LOG
-                <div class="radio-toggle">
-                    <input type="radio" id="toggle-kg" name="toggle" checked>
-                    <label for="toggle-kg">kg</label>
-                    
-                    <input type="radio" id="toggle-lb" name="toggle">
-                    <label for="toggle-lb">lb</label>
-                    
-                    <span class="slider"></span>
             </div>
-            <form class="form-container">
-                    <div class="form-group">
-                        <label class="form-label">WEIGHT :</label>
-                        <input type="number" min="1" id="weight" name="weight" placeholder="kg">
+            <!-- user input section -->
+            <div class="log-container">
+                <div class="title">QUICK LOG
+                    <div class="radio-toggle">
+                        <input type="radio" id="toggle-kg" name="toggle" checked>
+                        <label for="toggle-kg">kg</label>
+                        
+                        <input type="radio" id="toggle-lb" name="toggle">
+                        <label for="toggle-lb">lb</label>
+                        
+                        <span class="slider"></span>
                     </div>
-            
-                    <div class="form-group">
-                        <label class="form-label">SETS :</label>
-                        <input type="number" min="1" id="sets" name="sets">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">REPS :</label>
-                        <input type="number" min="1" id="reps" name="reps">
-                    </div>
-                    <button>Submit Entry</button>
-                </form>
-          </div>
+                    <form class="form-container">
+                        <div class="form-group">
+                            <label class="form-label">WEIGHT :</label>
+                            <input type="number" min="1" id="weight" step="0.1" name="weight" placeholder="kg">
+                        </div>
+                
+                        <div class="form-group">
+                            <label class="form-label">SETS :</label>
+                            <input type="number" min="1" id="sets" name="sets">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">REPS :</label>
+                            <input type="number" min="1" id="reps" name="reps">
+                        </div>
+                        <button>Submit Entry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

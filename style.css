@@ -42,6 +42,7 @@ h2 {
 }
 
 .list-container {
+    flex: 0 0 200px;
     border: 2px dashed #e2e2e2;
     padding: 0;
     width: 100%;
@@ -51,9 +52,12 @@ ul li:hover {
     color: #FF7043;
     box-shadow: 0px 5px 5px #FF7043
 }
+.info-container {
+    width: 100%;
+}
 img {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     border-radius: 20px;
     border: 2px dashed #e2e2e2;
 }
@@ -76,7 +80,7 @@ img {
 div.title {
     align-items: center;
     flex-wrap: wrap;
-    gap: 100px;
+    /* gap: 100px; */
     display: flex;
     color: #FF7043;
     background-color: white;
@@ -109,6 +113,7 @@ div.title {
 
 /* testing area of the quick log container and child elements*/
 .log-container {
+    width: 100%;
     border: 2px dashed #e2e2e2;
     border-radius: 20px;
     overflow: hidden;
@@ -204,4 +209,28 @@ button {
 #toggle-kg:checked ~ label[for="toggle-kg"],
 #toggle-lb:checked ~ label[for="toggle-lb"] {
   color: white;
+}
+
+
+/* MEDIA QUERIES */
+@media (min-width:575px) {
+    .grid-container {
+        /* min-width: 890px; */
+        flex-direction: row;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .item {
+        display: block;
+        border-radius: 100px;
+        width: 150px; 
+        margin: 15px 0px;
+        padding: 20px 20px;
+        font-size: 21px;
+    }
+    .list-container, .info-container, .stat-container, .log-container {
+        margin-top: 20px;
+        width: 400px;    
+    }
 }
