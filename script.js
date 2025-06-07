@@ -63,13 +63,8 @@ function renderPage(data) {
   document.querySelector('span#reps').textContent = data.reps;
   let total = document.querySelector('span#volume');
   let max = document.getElementById('currentMax');
-  if (isLbs) {
-    max.textContent = Math.round(data.max * 2.205) + " " + unit;
-    total.textContent = Math.round((data.max * 2.205) * data.reps) * data.sets + " " + unit;
-  } else if (!isLbs) {
-    max.textContent = data.max + ' ' + unit;
-    total.textContent = (data.max * data.sets) * data.reps + ' ' + unit;
-  }
+  max.textContent = kilogramsToPounds(data.max) + " " + unit;
+  total.textContent = (kilogramsToPounds(data.max) * data.reps) * data.sets + " " + unit;
   const instructions = document.getElementById('instructions');
   instructions.innerHTML = "";
   data.instructions.forEach(line => {
