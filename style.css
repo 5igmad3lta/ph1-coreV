@@ -45,7 +45,6 @@ h2 {
 
 .list-container {
     flex: 0 0 200px;
-    border: 2px dashed #e2e2e2;
     padding: 0;
     width: 100%;
 }
@@ -54,18 +53,17 @@ ul li:hover {
     color: #FF7043;
     box-shadow: 0px 5px 5px #FF7043
 }
-.info-container {
-    width: 100%;
-}
+
 img {
+    min-width: 380px;
     width: 100%;
     /* height: 100%; */
     border-radius: 20px;
-    border: 2px dashed #e2e2e2;
 }
-
+.exercise-info h3 {
+    border-bottom: 2px solid #2c2c2c;
+}
 .stat-container {
-    border: 2px dashed #e2e2e2;
     border-radius: 20px;
     background-color: #2C2C2C;
     /* padding: 20px 20px; */
@@ -82,7 +80,6 @@ img {
 div.title {
     align-items: center;
     flex-wrap: wrap;
-    /* gap: 100px; */
     display: flex;
     color: #FF7043;
     background-color: white;
@@ -115,8 +112,8 @@ div.title {
 
 /* testing area of the quick log container and child elements*/
 .log-container {
+    margin-top: 25px;
     width: 100%;
-    border: 2px dashed #e2e2e2;
     border-radius: 20px;
     overflow: hidden;
     text-align: end;
@@ -146,7 +143,7 @@ button {
     width: 100px;
     height: 50px;
     border-radius: 10px;
-    margin-right: 50px;
+    margin-right: 35px;
     margin-bottom: 20px;
 }
 #difference {
@@ -172,7 +169,7 @@ button {
   background: #f0f0f0;
   border-radius: 20px;
   padding: 4px;
-  margin-left: 170px;
+  margin-left: 110px;
 }
 
 .radio-toggle input[type="radio"] {

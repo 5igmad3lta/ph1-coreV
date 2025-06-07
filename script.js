@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`Choose an exercise first!`)
         return;
     } else {
-        let weight = parseInt(e.target[0].value);
+        let weight = parseFloat(e.target[0].value);
         let sets = parseInt(e.target[1].value);
         let reps = parseInt(e.target[2].value);
         handleSubmit(weight, sets, reps)
@@ -141,12 +141,12 @@ function handleSubmit(weight, sets, reps) {
 }
 
 function updateLog(data) {
-    let volume = parseInt(document.querySelector('span#volume').textContent);
+    let volume = parseFloat(document.querySelector('span#volume').textContent);
     volume = checkForConversion(volume);
     let indicator = document.querySelector('span#difference');
     if(data.max) {
         renderPage(data)
-        let difference = parseInt(((data.max * data.reps) * data.sets) - volume);
+        let difference = parseFloat(((data.max * data.reps) * data.sets) - volume);
         difference = kilogramsToPounds(difference);
         if(difference > 0) {
             indicator.textContent = " ▲" + difference + unit;
@@ -165,7 +165,7 @@ function updateLog(data) {
 
 function checkForConversion(number) {
   if (isLbs) {
-    return Math.round(number * 0.453);
+    return Math.round((number * 0.453)* 2 / 2);
   } else {
     return number;
   }
@@ -173,7 +173,7 @@ function checkForConversion(number) {
 
 function kilogramsToPounds(number) {
   if (isLbs) {
-    return Math.round(number * 2.205)
+    return Math.round((number * 2.205)* 2 / 2);
   } else {
     return number
   }
