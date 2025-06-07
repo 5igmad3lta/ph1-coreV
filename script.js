@@ -54,6 +54,7 @@ function retrieveExercise(e) {
   }
 
 function renderPage(data) {
+  activeStatus(data);
   document.getElementById('difference').textContent = "";
   document.getElementById('imgDefault').src = data.image;
   document.querySelector('div.title').textContent = data.name.toUpperCase();
@@ -161,6 +162,14 @@ function updateLog(data) {
             console.log(indicator)
             }
     }
+}
+
+function activeStatus(data) {
+  document.querySelectorAll('.item').forEach(item => {
+    item.classList.remove('active')
+  })
+  let activeTag = document.getElementById(data.id);
+  activeTag.classList.add('active');
 }
 
 function checkForConversion(number) {

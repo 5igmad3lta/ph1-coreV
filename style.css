@@ -43,6 +43,11 @@ h2 {
     transition: box-shadow 0.2s ease;
 }
 
+.item.active {
+    background-color: whitesmoke;
+    color: #FF7043;
+}
+
 .list-container {
     flex: 0 0 200px;
     padding: 0;
