@@ -20,9 +20,9 @@
       "secondary": [
         "Triceps"
       ],
-      "max": 200,
-      "sets": 1,
-      "reps": 1,
+      "max": 90,
+      "sets": 3,
+      "reps": 12,
       "image": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"
     },
     {
@@ -104,9 +104,9 @@
       "secondary": [
         "Calves"
       ],
-      "max": 30,
-      "sets": 1,
-      "reps": 1,
+      "max": 120,
+      "sets": 3,
+      "reps": 10,
       "image": "https://fitnessprogramer.com/wp-content/uploads/2021/02/BARBELL-SQUAT.gif"
     },
     {

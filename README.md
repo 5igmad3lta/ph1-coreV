@@ -3,11 +3,22 @@
 
 ## Key features
 ⭐**Track Progess**: Log weight, sets, and reps for each lift.  
-
+⭐**Instructions guide**: Follow the step-by-step instructions for proper form (sourced  from [Muscle and Strength](https://www.muscleandstrength.com/))  
+⭐**Unit Conversion**: Toggle between **kg** and **lbs** with one click.  
+⭐**User-Friendly**: Designed for lifters of all levels.  
 
 ## How to Use
+1. Select an exercise (e.g., Squats).
+2. Enter your workout data
+3. Toggle units if needed.
 
 ## Demo
+Use this gif as an example of how the app works.
 
+![Demo GIF](media/basic-navigation-1749352252389-ezgif.com-video-to-gif-converter.gif)
+
+The app defaults to kilograms as the unit of measurement. To record the weight in pounds, simply click on the toggle button near the quick log box below and start tracking!
 
 ## Credits
+- Exercise intsructions sourced from: [Muscle and Strength](https://www.muscleandstrength.com/)
+- Images/gifs : [Fitness Programer](https://fitnessprogramer.com/)
