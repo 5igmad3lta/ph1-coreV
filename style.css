@@ -113,7 +113,9 @@ div.title {
     padding-left: 40px;
     font-weight: bold;
 }
-
+#totalVolume {
+    color: rgb(209, 178, 4);
+}
 
 /* testing area of the quick log container and child elements*/
 .log-container {
