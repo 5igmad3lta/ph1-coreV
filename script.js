@@ -169,7 +169,7 @@ function activeStatus(data) {
 
 function checkForConversion(number) {
   if (isLbs) {
-    return Math.round((number * 0.453)* 2 / 2);
+    return Math.round((number * 0.453)* 2) / 2;
   } else {
     return number;
   }
@@ -177,7 +177,7 @@ function checkForConversion(number) {
 
 function kilogramsToPounds(number) {
   if (isLbs) {
-    return Math.round((number * 2.205)* 2 / 2);
+    return Math.round((number * 2.205)* 2) / 2;
   } else {
     return number
   }
